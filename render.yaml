@@ -1,11 +1,13 @@
 services:
   - type: web
     name: whatsapp-chatbot
-    env: docker
+    env: java
     plan: free
     branch: main
 
-    dockerfilePath: ./Dockerfile
+    buildCommand: ./mvnw clean install
+
+    startCommand: java -jar target/*.jar
 
     autoDeploy: true
 
